@@ -79,7 +79,7 @@ router.post('/:id/posts', async (req, res) => {
     await topic.save()
         .then(async savedTopic => {
             await savedTopic.populate(['posts', savedTopic.posts.length - 1, 'user'].join('.')).execPopulate();
-            const post = savedTopic.post[savedTopic.posts.length - 1];
+            const post = savedTopic.posts[savedTopic.posts.length - 1];
             res.json(toResponsePost(post));
         })
         .catch(error => {
