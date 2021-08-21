@@ -1,0 +1,1115 @@
+{
+	"info": {
+		"_postman_id": "5eeb82ba-9efc-42a5-86cd-00e6a732806f",
+		"name": "Modulo2Asignatura2 ->Practica 2 Recuperacion - DBs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Get All Users",
+							"item": [
+								{
+									"name": "Found all users",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create a new user",
+							"item": [
+								{
+									"name": "Invalid user attributes",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"mail@example.com\",\n    \"userName\": NotAString\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New User Created",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"newUser@newMail.com\",\n    \"userName\": \"New Brand User\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Already existing user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"newUser@newMail.com\",\n    \"userName\": \"New Brand User\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get user by Id",
+							"item": [
+								{
+									"name": "User found",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "5fda3234e9e3fd53e3907bed"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User not found",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "1111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid supplied id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<!!userId>"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Edit user's mail",
+							"item": [
+								{
+									"name": "User does not exist",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"aNew@mail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Valid new mail for invalid user",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"good@mail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Valid new mail for valid user",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"good@mail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "5fda3234e9e3fd53e3907bed"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid new mail for invalid user",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": 333\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "1111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Delete user",
+							"item": [
+								{
+									"name": "User with posts",
+									"item": [
+										{
+											"name": "Delete a valid user with posts",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/5fda3234e9e3fd53e3907bed",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														"5fda3234e9e3fd53e3907bed"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "User not found",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "5fda3234e9e3fd53e3907be9"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete an invalid user",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "11111111111"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Invalid userID provided",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "<!!userID>"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "User without posts",
+									"item": [
+										{
+											"name": "Delete a valid user without posts",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "5fda3234e9e3fd53e3907bef"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "User not found",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "5fda3234e9e3fd53e3907be9"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete an invalid user Copy",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "11111111111"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Invalid userID provided",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "<!!userID>"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get All User's posts",
+							"item": [
+								{
+									"name": "Found user's posts",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId",
+												"posts"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "5fda3234e9e3fd53e3907bed"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Found user without posts",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId",
+												"posts"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "5fda3234e9e3fd53e3907bef"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Non-existing user",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId",
+												"posts"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "topics",
+					"item": [
+						{
+							"name": "Get all topics",
+							"item": [
+								{
+									"name": "Found all topics",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create a new topic",
+							"item": [
+								{
+									"name": "Topic created",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy new topic\",\n    \"message\": \"A new fancy topic to discover\",\n    \"author\": \"AuthorName\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Topic Data",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy new topic\",\n    \"message\": \"A new fancy topic to discover\",\n    \"author\": {\n        \"userName\": \"newAuthor\",\n        \"email\": \"anew@mail.com\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Topic Data without author's info",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy new topic\",\n    \"message\": \"A new fancy topic to discover\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get topic by id",
+							"item": [
+								{
+									"name": "Found a topic",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":topicId"
+											],
+											"variable": [
+												{
+													"key": "topicId",
+													"value": "5fda350d3749aa4832165b84"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Topic not found",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":topicId"
+											],
+											"variable": [
+												{
+													"key": "topicId",
+													"value": "5fda3234e9e3fd53e3907bf1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid id provided",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":topicId"
+											],
+											"variable": [
+												{
+													"key": "topicId",
+													"value": "hola"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Delete post from a topic",
+							"item": [
+								{
+									"name": "Delete post from a existing topic",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/:postId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												":postId"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5fda350d3749aa4832165b84"
+												},
+												{
+													"key": "postId",
+													"value": "11111111"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete post from a non-existing topic",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/:postId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												":postId"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "111111111111"
+												},
+												{
+													"key": "postId",
+													"value": "5fdb4812df5c2555a401b6da"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a non-existing post from existing topic",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/:postId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												":postId"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5fda350d3749aa4832165b84"
+												},
+												{
+													"key": "postId",
+													"value": "111111111"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create post for a topic",
+							"item": [
+								{
+									"name": "Create a new post for an existing topic",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy post title\",\n    \"post\": \"this is a new post\",\n    \"userName\": \"user1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												""
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5fda350d3749aa4832165b84"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new post for a non-existing topic",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy post title\",\n    \"post\": \"this is a new post\",\n    \"userName\": \"user1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												""
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5fda350d3749aa4832165b00"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid new post for an existing topic",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Fancy post title\",\n    \"post\": \"this is a new post\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:id/posts/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":id",
+												"posts",
+												""
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5fda350d3749aa4832165b84"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}

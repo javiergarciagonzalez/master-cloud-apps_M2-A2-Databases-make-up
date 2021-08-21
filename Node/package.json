@@ -1,0 +1,38 @@
+{
+  "name": "master-cloud-apps_m2-a2-databases-make-up",
+  "version": "0.0.1",
+  "description": "NodeJS project. Persists data on MongoDB",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server",
+    "dev": "nodemon src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/javiergarciagonzalez/master-cloud-apps_M4-A4-Databases-make-up.git"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "js",
+    "javascript",
+    "mongo",
+    "mongoDB",
+    "databases",
+    "db",
+    "database"
+  ],
+  "author": "Javier Garcia Gonzalez <javier@garciagon.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/javiergarciagonzalez/master-cloud-apps_M4-A4-Databases-make-up/issues"
+  },
+  "homepage": "https://github.com/javiergarciagonzalez/master-cloud-apps_M4-A4-Databases-make-up#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.7"
+  }
+}
