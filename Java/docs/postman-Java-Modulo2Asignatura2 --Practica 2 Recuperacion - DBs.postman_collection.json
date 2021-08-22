@@ -1,0 +1,1347 @@
+{
+	"info": {
+		"_postman_id": "51c896b2-967b-4678-b33c-b36373e989a9",
+		"name": "Java-Modulo2Asignatura2 ->Practica 2 Recuperacion - DBs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{user Id}",
+							"item": [
+								{
+									"name": "Get a user by its id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "81016857",
+													"description": "(Required) id of user to be searched"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Found the user",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": -29737278,\n \"userName\": \"voluptate velit\",\n \"email\": \"commodo nostrud\"\n}"
+										},
+										{
+											"name": "Invalid format id supplied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Deletes user",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "81016857",
+													"description": "(Required) id of user to be deleted"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "User deleted",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": -29737278,\n \"userName\": \"voluptate velit\",\n \"email\": \"commodo nostrud\"\n}"
+										},
+										{
+											"name": "Invalid format id supplied",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "User can't be deleted because has associated posts",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Conflict",
+											"code": 409,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Updates user's email",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"cillum Ut dolor laboris\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "81016857",
+													"description": "(Required) id of user to update the email"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "User with updated email",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"cillum Ut dolor laboris\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": -29737278,\n \"userName\": \"voluptate velit\",\n \"email\": \"commodo nostrud\"\n}"
+										},
+										{
+											"name": "Invalid email supplied",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"cillum Ut dolor laboris\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"cillum Ut dolor laboris\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Get all user's posts",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/:userId/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												":userId",
+												"posts"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "81016857",
+													"description": "(Required) id of user to get posts"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Found all user's posts",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/users/:userId/posts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"users",
+														":userId",
+														"posts"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n {\n  \"id\": -97873472,\n  \"topicId\": 79333252,\n  \"post\": \"minim irure velit in\",\n  \"title\": \"ullamco enim eiusmod do\"\n },\n {\n  \"id\": 89773608,\n  \"topicId\": -8404899,\n  \"post\": \"exercitation\",\n  \"title\": \"consectetur Excepteur sed ut\"\n }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Found all users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": 59976173,\n  \"userName\": \"ea ullamco\",\n  \"email\": \"exercitation laborum magna dolore\"\n },\n {\n  \"id\": -81913576,\n  \"userName\": \"sint dolor culpa consequat amet\",\n  \"email\": \"do consectetur\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"enim ex do\",\n    \"userName\": \"in nostrud ullamco voluptate eiusmod\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created the user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"enim ex do\",\n    \"userName\": \"in nostrud ullamco voluptate eiusmod\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": -29737278,\n \"userName\": \"voluptate velit\",\n \"email\": \"commodo nostrud\"\n}"
+								},
+								{
+									"name": "Invalid user attributes supplied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"enim ex do\",\n    \"userName\": \"in nostrud ullamco voluptate eiusmod\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Already exists an user with same user name",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"enim ex do\",\n    \"userName\": \"in nostrud ullamco voluptate eiusmod\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/users/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "topics",
+					"item": [
+						{
+							"name": "{topic Id}",
+							"item": [
+								{
+									"name": "posts",
+									"item": [
+										{
+											"name": "Add a post to a topic",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"post\": \"amet in\",\n    \"userId\": -51897814,\n    \"title\": \"adipisicing cupidatat\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"topics",
+														":topicId",
+														"posts",
+														""
+													],
+													"variable": [
+														{
+															"key": "topicId",
+															"value": "81016857",
+															"description": "(Required) identifier of the topic to which the post will be added"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Added post to the topic",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"post\": \"amet in\",\n    \"userId\": -51897814,\n    \"title\": \"adipisicing cupidatat\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																""
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"id\": 66759689,\n \"user\": {\n  \"userName\": \"pariatur ex\",\n  \"email\": \"dolore\"\n },\n \"title\": \"fugiat reprehenderit\",\n \"post\": \"do esse qui irure sunt\"\n}"
+												},
+												{
+													"name": "Invalid post attributes supplied",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"post\": \"amet in\",\n    \"userId\": -51897814,\n    \"title\": \"adipisicing cupidatat\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																""
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Topic or user not found",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"post\": \"amet in\",\n    \"userId\": -51897814,\n    \"title\": \"adipisicing cupidatat\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																""
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Delete a post from a topic",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/:postId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"topics",
+														":topicId",
+														"posts",
+														":postId"
+													],
+													"variable": [
+														{
+															"key": "topicId",
+															"value": "81016857",
+															"description": "(Required) identifier of the topic to which the post belongs"
+														},
+														{
+															"key": "postId",
+															"value": "81016857",
+															"description": "(Required) id of post to be deleted"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Deleted post from the topic",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																},
+																{
+																	"key": "postId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"id\": 66759689,\n \"user\": {\n  \"userName\": \"pariatur ex\",\n  \"email\": \"dolore\"\n },\n \"title\": \"fugiat reprehenderit\",\n \"post\": \"do esse qui irure sunt\"\n}"
+												},
+												{
+													"name": "Invalid format id supplied",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																},
+																{
+																	"key": "postId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Post not found with passed topicId and postId",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/topics/:topicId/posts/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"topics",
+																":topicId",
+																"posts",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "topicId"
+																},
+																{
+																	"key": "postId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get a topic by its id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												":topicId"
+											],
+											"variable": [
+												{
+													"key": "topicId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Found the topic",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"topics",
+														":topicId"
+													],
+													"variable": [
+														{
+															"key": "topicId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": 54996672,\n \"title\": \"eu esse\",\n \"author\": \"exercitation culpa ut\",\n \"message\": \"dolore est sed incididunt\",\n \"posts\": [\n  {\n   \"id\": -86150343,\n   \"user\": {\n    \"userName\": \"non \",\n    \"email\": \"ut deserunt fugiat non Lorem\"\n   },\n   \"title\": \"nostrud laborum eiusmod\",\n   \"post\": \"laborum\"\n  },\n  {\n   \"id\": 94352892,\n   \"user\": {\n    \"userName\": \"reprehenderit nostrud aute laborum\",\n    \"email\": \"officia Duis veniam in\"\n   },\n   \"title\": \"ad qui quis\",\n   \"post\": \"Ut culpa dolore exercitation\"\n  }\n ]\n}"
+										},
+										{
+											"name": "Invalid format id supplied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"topics",
+														":topicId"
+													],
+													"variable": [
+														{
+															"key": "topicId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Topic not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/topics/:topicId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"topics",
+														":topicId"
+													],
+													"variable": [
+														{
+															"key": "topicId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all topics",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/topics/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"topics",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Found all topics",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": -58157193,\n  \"title\": \"dolor ullamco consectetur\"\n },\n {\n  \"id\": 64213302,\n  \"title\": \"mollit dolore tempor ullamco\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new topic",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"author\": \"quis consectetur\",\n    \"message\": \"aute dolore proident consectetur\",\n    \"title\": \"sint Lorem\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/topics/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"topics",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created the topic",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"author\": \"quis consectetur\",\n    \"message\": \"aute dolore proident consectetur\",\n    \"title\": \"sint Lorem\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": -87806533,\n \"title\": \"in Duis fugiat\",\n \"author\": \"ut aute exercitation\",\n \"message\": \"dolore in amet\",\n \"posts\": [\n  {\n   \"id\": -46129405,\n   \"user\": {\n    \"userName\": \"ullamco id sunt consectetur\",\n    \"email\": \"minim eiusmod culpa consectetur d\"\n   },\n   \"title\": \"dolor Ut nostrud\",\n   \"post\": \"quis magna\"\n  },\n  {\n   \"id\": 48921482,\n   \"user\": {\n    \"userName\": \"aliquip eu do\",\n    \"email\": \"in deserunt\"\n   },\n   \"title\": \"non sunt laborum eiusmod\",\n   \"post\": \"id velit\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Invalid topic attributes supplied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"author\": \"quis consectetur\",\n    \"message\": \"aute dolore proident consectetur\",\n    \"title\": \"sint Lorem\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/topics/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"topics",
+												""
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

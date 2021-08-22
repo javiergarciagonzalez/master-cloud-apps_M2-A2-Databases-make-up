@@ -1,0 +1,549 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [{
+        "url": "http://localhost:8080",
+        "description": "Generated server url"
+    }],
+    "paths": {
+        "/api/v1/users/": {
+            "get": {
+                "tags": ["user-controller"],
+                "summary": "Get all users",
+                "operationId": "getUsers",
+                "responses": {
+                    "200": {
+                        "description": "Found all users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserResponseDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["user-controller"],
+                "summary": "Create a new user",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "User to be created",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid user attributes supplied"
+                    },
+                    "409": {
+                        "description": "Already exists an user with same user name"
+                    },
+                    "200": {
+                        "description": "Created the user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/topics/{topicId}/posts/": {
+            "post": {
+                "tags": ["topic-controller"],
+                "summary": "Add a post to a topic",
+                "operationId": "createPost",
+                "parameters": [{
+                    "name": "topicId",
+                    "in": "path",
+                    "description": "identifier of the topic to which the post will be added",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "requestBody": {
+                    "description": "post to be added",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid post attributes supplied"
+                    },
+                    "404": {
+                        "description": "Topic or user not found"
+                    },
+                    "200": {
+                        "description": "Added post to the topic",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/topics/": {
+            "get": {
+                "tags": ["topic-controller"],
+                "summary": "Get all topics",
+                "operationId": "getTopics",
+                "responses": {
+                    "200": {
+                        "description": "Found all topics",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TopicResponseDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["topic-controller"],
+                "summary": "Create a new topic",
+                "operationId": "createTopic",
+                "requestBody": {
+                    "description": "Topic to be created",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopicRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid topic attributes supplied"
+                    },
+                    "200": {
+                        "description": "Created the topic",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicDetailsResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{userId}": {
+            "get": {
+                "tags": ["user-controller"],
+                "summary": "Get a user by its id",
+                "operationId": "getUser",
+                "parameters": [{
+                    "name": "userId",
+                    "in": "path",
+                    "description": "id of user to be searched",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Invalid format id supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "200": {
+                        "description": "Found the user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["user-controller"],
+                "summary": "Deletes user",
+                "operationId": "deleteUser",
+                "parameters": [{
+                    "name": "userId",
+                    "in": "path",
+                    "description": "id of user to be deleted",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "User deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid format id supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "409": {
+                        "description": "User can't be deleted because has associated posts"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["user-controller"],
+                "summary": "Updates user's email",
+                "operationId": "updateUserEmail",
+                "parameters": [{
+                    "name": "userId",
+                    "in": "path",
+                    "description": "id of user to update the email",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "requestBody": {
+                    "description": "Email to be updated",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateUserEmailRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid email supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "200": {
+                        "description": "User with updated email",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{userId}/posts": {
+            "get": {
+                "tags": ["user-controller"],
+                "summary": "Get all user's posts",
+                "operationId": "getUserPosts",
+                "parameters": [{
+                    "name": "userId",
+                    "in": "path",
+                    "description": "id of user to get posts",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Found all user's posts",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserPostResponseDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/topics/{topicId}": {
+            "get": {
+                "tags": ["topic-controller"],
+                "summary": "Get a topic by its id",
+                "operationId": "getTopic",
+                "parameters": [{
+                    "name": "topicId",
+                    "in": "path",
+                    "description": "id of topic to be searched",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Invalid format id supplied"
+                    },
+                    "404": {
+                        "description": "Topic not found"
+                    },
+                    "200": {
+                        "description": "Found the topic",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicDetailsResponseDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/topics/{topicId}/posts/{postId}": {
+            "delete": {
+                "tags": ["topic-controller"],
+                "summary": "Delete a post from a topic",
+                "operationId": "deletePost",
+                "parameters": [{
+                    "name": "topicId",
+                    "in": "path",
+                    "description": "identifier of the topic to which the post belongs",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }, {
+                    "name": "postId",
+                    "in": "path",
+                    "description": "id of post to be deleted",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Invalid format id supplied"
+                    },
+                    "200": {
+                        "description": "Deleted post from the topic",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Post not found with passed topicId and postId"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "UserRequestDto": {
+                "required": ["email", "userName"],
+                "type": "object",
+                "properties": {
+                    "userName": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                }
+            },
+            "UserResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "userName": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostRequestDto": {
+                "required": ["post", "userId"],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "post": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/PostUserResponseDto"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "post": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostUserResponseDto": {
+                "type": "object",
+                "properties": {
+                    "userName": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                }
+            },
+            "TopicRequestDto": {
+                "required": ["author", "message", "title"],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "TopicDetailsResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "posts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PostResponseDto"
+                        }
+                    }
+                }
+            },
+            "UpdateUserEmailRequestDto": {
+                "required": ["email"],
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    }
+                }
+            },
+            "UserPostResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "topicId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "post": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "TopicResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
